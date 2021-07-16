@@ -49,7 +49,8 @@ class Projects(models.Model):
 class Profile(models.Model):
     profile_pic= models.ImageField(upload_to='profile/' )
     bio = models.TextField(blank=True)
-    user_id = models.OneToOneField(User, null= True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    contact_info = models.CharField(max_length=50, blank=False)
     more_info = models.TextField(blank=False, null=True)
     
     def __str__(self):
