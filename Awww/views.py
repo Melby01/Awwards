@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from .forms import Registration
+import datetime as dt
+from .models import Projects
 # Create your views here.
 
 def register(request):
@@ -16,3 +18,8 @@ def register(request):
     else:
       form = Registration()
     return render(request,'registration/registration_form.html',{"form":form})
+  
+def index(request):
+  date = dt.date.today()
+  projects = Projects.objects.all()
+  return render(request, 'all-awards/index.html', {"date":date, "projects":projects} )
