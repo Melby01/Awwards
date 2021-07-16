@@ -8,7 +8,7 @@ from django.db.models.signals import post_save
 # Create your models here.
 
 class Projects(models.Model):
-    name = models.CharField(max_length =60)
+    person = models.CharField(max_length =60)
     the_image = models.ImageField(upload_to = 'images/')
     description = models.CharField(max_length =200)
     live_link = models.URLField()
