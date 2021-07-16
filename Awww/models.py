@@ -11,7 +11,7 @@ class Projects(models.Model):
     name = models.CharField(max_length =60)
     the_image = models.ImageField(upload_to = 'images/')
     description = models.CharField(max_length =200)
-    link = models.URLField()
+    live_link = models.URLField()
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     pub_date = models.DateTimeField(auto_now_add=True)
     
