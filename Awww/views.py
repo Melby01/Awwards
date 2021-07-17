@@ -35,7 +35,7 @@ def project(request, id):
     except ObjectDoesNotExist:
         raise Http404()    
     
-    return render(request, "all-awwards/project.html", {"project":project})
+    return render(request, "all-awards/project.html", {"project":project})
   
 @login_required(login_url='/accounts/login/')
 def upload_project(request):
@@ -50,4 +50,4 @@ def upload_project(request):
 
     else:
         form = UploadForm()
-    return render(request, 'all-awwards/upload_project.html', {"form":form})
+    return render(request, 'all-awards/upload_project.html', {"form":form})
