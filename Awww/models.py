@@ -3,7 +3,9 @@ from django.contrib.auth.models import User
 import datetime as dt
 from django.dispatch import receiver
 from django.db.models.signals import post_save
-
+from django.http  import Http404
+from .models import projects
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your models here.
 
