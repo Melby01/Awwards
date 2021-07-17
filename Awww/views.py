@@ -3,6 +3,9 @@ from django.contrib import messages
 from .forms import Registration
 import datetime as dt
 from .models import Projects
+from django.http  import Http404
+from django.contrib.auth.decorators import login_required
+from .forms import UserCreationForm
 # Create your views here.
 
 def register(request):
@@ -23,3 +26,28 @@ def index(request):
   date = dt.date.today()
   projects = Projects.objects.all()
   return render(request, 'all-awards/index.html', {"date":date, "projects":projects} )
+
+def project(request, id):
+    
+    try:
+        project = Projects.objects.get(pk = id)
+        
+    except ObjectDoesNotExist:
+        raise Http404()    
+    
+    return render(request, "all-awwards/project.html", {"project":project})
+  
+@login_required(login_url='/accounts/login/')
+def upload_project(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = UploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.author = current_user
+            project.save()
+        return redirect('home')
+
+    else:
+        form = UploadForm()
+    return render(request, 'all-awwards/upload_project.html', {"form":form})

@@ -8,8 +8,8 @@ from django.db.models.signals import post_save
 # Create your models here.
 
 class Projects(models.Model):
-    person = models.CharField(max_length =60)
-    the_image = models.ImageField(upload_to = 'images/')
+    project = models.CharField(max_length =60)
+    image = models.ImageField(upload_to = 'images/')
     description = models.CharField(max_length =200)
     live_link = models.URLField()
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)

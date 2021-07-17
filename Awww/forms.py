@@ -9,4 +9,15 @@ class Registration(UserCreationForm):
     class Meta:
      model = User
      fields = ['username','email','password1','password2']
+     
+class UploadForm(forms.ModelForm):
+    class Meta:
+        model= Projects
+        fields = ('project', 'image', 'description','live_link', 'user', 'pub_date')
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('profile_pic', 'bio', 'user', 'contact_info', 'more_info')
+        
  
