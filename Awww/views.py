@@ -51,3 +51,11 @@ def upload_project(request):
     else:
         form = UploadForm()
     return render(request, 'all-awards/upload_project.html', {"form":form})
+
+@login_required(login_url='/accounts/login')
+def search(request):
+    projects = Projects.objects.all()
+    parameter = request.GET.get("project")
+    result = Projects.objects.filter(project_name__icontains=parameter)
+    print(result)
+    return render(request, 'all-awards/search.html', locals())
