@@ -13,7 +13,7 @@ class Registration(UserCreationForm):
 class UploadForm(forms.ModelForm):
     class Meta:
         model= Projects
-        fields = ('project', 'image', 'description','live_link', 'user', 'pub_date')
+        fields = ('project', 'image', 'description','live_link', 'user')
 
 class ProfileForm(forms.ModelForm):
     class Meta:
