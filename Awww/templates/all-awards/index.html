@@ -5,15 +5,15 @@
  <div class="container">
 
    <div class="row">
-     <img src="{{projects.project_image.url}}"  class="img-responsive" alt="">
+     <img src="{{projects.image.url}}"  class="img-responsive" alt="">
    </div>
 
    <div class="row">
-     <h1 class="text-center">{{project.project_title}}</h1>
+     <h1 class="text-center">{{project.project}}</h1>
    </div>
    <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <img src="{{Awww_item.project_image.url}}" class="img-responsive w-100 btn btn-outline-info" alt="image" width="50%" height="40%">
+        <img src="{{Awww_item.image.url}}" class="img-responsive w-100 btn btn-outline-info" alt="image" width="50%" height="40%">
       </div>
    <div class="row">
      <!-- {% autoescape on %}
@@ -23,7 +23,7 @@
    </div>
 
    <div class="row">
-     <p>Posted {{projects.pub_date|timesince}} by {{profile.person}}</p>
+     <p>Posted {{projects.pub_date|timesince}} by {{profile.user}</p>
    </div>
 
  </div>
