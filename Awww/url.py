@@ -7,5 +7,8 @@ urlpatterns=[
     url(r'^login', views.login_request, name='login'),
     url(r'^index$',views.index,name='index'),
     url(r'^search$',views.search,name='search'),
-    url(r'^profile$',views.new_profile,name='new_profile')
+    url(r'^profile$',views.new_profile,name='new_profile'),
+    url(r'^upload_project$',views.upload_project,name='upload_project'),
+    url(r'^project$',views.project,name='project')
+    
 ]
