@@ -26,7 +26,7 @@
             <div class="mask rgba-white-slight">
               <div class="d-flex justify-content-end">
                 <a href="{{project.url}}" target="_blank" title="Visit site"> <button type="button"
-                    class="btn btn-light px-3"><i class="fas fa-directions" aria-hidden="true"></i></button>
+                    class="btn btn-light px-3"><i class="fas fa-directions" aria-hidden="true"></i>Live link</button>
                 </a></div>
             </div>
           </a>
@@ -47,8 +47,8 @@
           </div>
           <div class="row">
             <div class="col-lg-6 dark-text">
-              <img src="{{ project_item.author.image.url }}" alt="" class="rounded-circle img-fluid mr-1" style="width: 40px;">
-              Posted By:{{project_item.author|upper}}<small><div class="col-lg-6 dark-text"> <small> Date Posted: {{project.pub_date|date:"d /m/Y"}} </small> </div>
+              <img src="{{ project.user.image.url }}" alt="" class="rounded-circle img-fluid mr-1" style="width: 40px;">
+              Posted By:{{project.user|upper}}<small><div class="col-lg-6 dark-text"> <small> Date Posted: {{project.pub_date|date:"d /m/Y"}} </small> </div>
             </div>
           </div>
           <div class="mt-2 pt-2">

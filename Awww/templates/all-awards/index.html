@@ -1,13 +1,19 @@
 {%extends 'all-awards/base.html'%}
 {% block content %}
 {% load bootstrap3 %}
- 
+<!DOCTYPE>
+<html>
+<title>AWARDS</title>
+
+<meta charset="UTF-8">
+ <body>
+
  <div class="container">
 
-  {% for Awww_item in Awww %}
+  {% for project in project %}
 
      <div class="row">
-      <img src="{{Awww_item.image.url}}"  class="img-responsive" alt="">
+      <a href="{% url 'project' %}"><img src="{project.image.url}}"  class="img-responsive" alt="">
      </div>
 
     <div class="row">
@@ -16,7 +22,7 @@
 
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-       <img src="{{Awww_item.image.url}}" class="img-responsive w-100 btn btn-outline-info" alt="image" width="50%" height="40%">
+        <img src="{{project.image.url}}" class="img-responsive w-100 btn btn-outline-info" alt="image" width="50%" height="40%">
       </div>
     </div>
  
@@ -28,3 +34,5 @@
 
 
  {% endblock %}
+ </body>
+</html>
