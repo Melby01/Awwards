@@ -8,7 +8,7 @@ urlpatterns=[
     url(r'^',views.index,name='index'),
     url(r'^search$',views.search,name='search'),
     url(r'^profile$',views.new_profile,name='new_profile'),
-    url(r'^upload_project$',views.upload_project,name='upload_project'),
+    url(r'^upload_project',views.upload_project,name='upload_project'),
     url(r'^project$',views.project,name='project')
     
 ]
