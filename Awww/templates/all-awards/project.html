@@ -34,9 +34,6 @@
 
         <!-- Card content -->
         <div class="card-body card-body-cascade text-center">
-
-          <!-- Title -->
-          <!-- <h2 class="font-weight-bold"><a>{{ project.project_title }}</a></h2> -->
           <!-- Data -->
           <h4 class="">{{ project.description }}</h4>
 
@@ -47,7 +44,7 @@
           </div>
           <div class="row">
             <div class="col-lg-6 dark-text">
-              <img src="{{ project.user.image.url }}" alt="" class="rounded-circle img-fluid mr-1" style="width: 40px;">
+              <img src="{{ project.image. }}" alt="" class="rounded-circle img-fluid mr-1" style="width: 40px;">
               Posted By:{{project.user|upper}}<small><div class="col-lg-6 dark-text"> <small> Date Posted: {{project.pub_date|date:"d /m/Y"}} </small> </div>
             </div>
           </div>

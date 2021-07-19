@@ -48,11 +48,11 @@ def upload_project(request):
             project = form.save(commit=False)
             project.author = current_user
             project.save()
-        return redirect(request, 'all-awards/upload_project.html')
+        return render(request, 'all-awards/upload_project.html')
 
     else:
         form = UploadForm()
-    return render(request, 'all-awards/index.html', {"form":form})
+    return redirect(request, 'all-awards/index.html', {"form":form})
 
 @login_required(login_url='/accounts/login')
 def search(request):
