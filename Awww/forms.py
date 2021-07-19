@@ -20,8 +20,6 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = ('profile_pic', 'bio', 'user', 'contact_info', 'more_info')
         
-class AuthenticationForm(forms.ModelFormm):
-    class Meta:
-        model = User
+ 
         
  

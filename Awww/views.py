@@ -4,10 +4,9 @@ import datetime as dt
 from .models import Projects,Profile
 from django.http  import Http404
 from django.contrib.auth.decorators import login_required
-from .forms import UserCreationForm,UploadForm,Registration,ProfileForm,AuthenticationForm
-from django.contrib.auth import login, authenticate 
+from .forms import UploadForm,Registration,ProfileForm 
  
-
+ 
 # Create your views here.
 
 def register(request):
@@ -24,24 +23,7 @@ def register(request):
       form = Registration()
     return render(request,'registration/registration_form.html',{"form":form})
 
-def login_request(request):
-    	if request.method == "POST":
-		form = AuthenticationForm(request.POST)
-		if form.is_valid():
-			username = form.cleaned_data.get('username')
-			password = form.cleaned_data.get('password')
-			user = authenticate(username=username, password=password)
-			if user is not None:
-				login(request, user)
-				messages.info(request, f"You are now logged in as {username}.")
-				return redirect("index")
-			else:
-				messages.error(request,"Invalid username or password.")
-		else:
-			messages.error(request,"Invalid username or password.")
-	form = AuthenticationForm()
-	return render(request, 'registration/login.html', context={"login_form":form})
-
+ 
 def index(request):
   date = dt.date.today()
   projects = Projects.objects.all()
@@ -66,11 +48,11 @@ def upload_project(request):
             project = form.save(commit=False)
             project.author = current_user
             project.save()
-        return redirect('index')
+        return redirect(request, 'all-awards/upload_project.html')
 
     else:
         form = UploadForm()
-    return render(request, 'all-awards/upload_project.html', {"form":form})
+    return render(request, 'all-awards/index.html', {"form":form})
 
 @login_required(login_url='/accounts/login')
 def search(request):
