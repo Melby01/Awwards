@@ -1,8 +1,11 @@
-.navbar-brand{
-    color:aqua
+h1{
+    color:aqua;
 }
 body{
     text-align: center;
     text-decoration: none;
-    color: black;
+    background-color: maroon;
+    color:orange;
+    font-size: 25px;
+
 }
