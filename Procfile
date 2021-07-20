@@ -1,1 +1,1 @@
-web: gunicorn Awward_app.wsgi  
+web: gunicorn Awww_app.wsgi  
