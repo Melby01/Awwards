@@ -5,7 +5,7 @@ from .models import Projects,Profile
 from django.http  import Http404
 from django.contrib.auth.decorators import login_required
 from .forms import UploadForm,Registration,ProfileForm 
- 
+from django.core.exceptions import ObjectDoesNotExist
  
 # Create your views here.
 

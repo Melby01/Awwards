@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 from decouple import config,Csv
 import django
+import cloudinary  
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Awww',
     'bootstrap3',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +54,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+cloudinary.config( 
+  cloud_name = "melby", 
+  api_key = "824463284765866", 
+  api_secret = "e1bOo_tbUr0cI_HiXBDJCYeNqQ8",
+  secure = True
+)
 
 ROOT_URLCONF = 'Awwards.urls'
 

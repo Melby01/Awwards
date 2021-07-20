@@ -1,16 +1,24 @@
 {%extends 'all-awards/base.html'%}
 {% block content %}
 {% load bootstrap3 %}
+{% load cloudinary %}
+{% load static %}  
 <!DOCTYPE>
 <html>
-<title>AWARDS</title>
-
+<head> 
 <meta charset="UTF-8">
+<title> THE AWARDS</title>
+ 
+{% block styles %}
+    {% bootstrap_css %}
+     <link rel="stylesheet" href="{% static 'css/basegram.css' %}">
+  {% endblock %}
+
  <body>
 
  <div class="container">
 
-  {% for project in project %}
+  {% for project in projects %}
 
      <div class="row">
       <a href="{% url 'project' %}"><img src="{project.image.url}}"  class="img-responsive" alt="">
@@ -21,14 +29,26 @@
     </div>
 
     <div class="row">
+      {{project.description}}
+    </div>
+
+    <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <img src="{{project.image.url}}" class="img-responsive w-100 btn btn-outline-info" alt="image" width="50%" height="40%">
       </div>
     </div>
+
+    <div class="row">
+    {{project.live_link}}
+    </div>
+
+    <div class="row">
+    {{project.pub_date}}
+    </div>
  
     {% empty%}
     <div class="row">
-     <p>Posted on {{Projects.pub_date|timesince}} by {{Profile.user}} </p>
+     <p>Posted on {{projects.pub_date|timesince}} by {{Profile.user}} </p>
     </div>
     {% endfor %}
 
